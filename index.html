@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lưu Văn Đại | AI-Augmented Software Engineer</title>
+<meta name="description" content="Lưu Văn Đại, software engineer hơn 4 năm kinh nghiệm xây dựng hệ thống dữ liệu, data warehouse, ERP và giải pháp ứng dụng AI với C#, ASP.NET Core, SQL Server.">
+<meta name="theme-color" content="#050B16">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Lưu Văn Đại | AI-Augmented Software Engineer">
+<meta property="og:description" content="Build systems. Move data. Scale with AI.">
+<meta property="og:image" content="https://luudai92.github.io/assets/og.jpg">
+<meta property="og:url" content="https://luudai92.github.io/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23050B16'/><path d='M18 18v28h12M34 18h6a12 12 0 0 1 0 24h-6z' fill='none' stroke='%233D8BFF' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Lưu Văn Đại","alternateName":"Luu Van Dai","jobTitle":"AI-Augmented Software Engineer","url":"https://luudai92.github.io/","image":"https://luudai92.github.io/assets/avatar.jpg","sameAs":["https://github.com/luudai92"],"knowsAbout":["C#","ASP.NET Core","SQL Server","Data Warehouse","ETL","ERP","AI Agents"]}
+</script>
+<style>
+:root{
+  --bg:#050B16;        /* nền */
+  --bg-2:#081223;      /* nền section xen kẽ */
+  --surface:#0C1A2F;   /* thẻ */
+  --border:rgba(150,180,225,.12);
+  --border-2:rgba(150,180,225,.22);
+  --text:#EAF0F8;
+  --muted:#8C9CB5;
+  --dim:#5D6E89;
+  --blue:#3D8BFF;      /* dữ liệu đã xử lý / hành động */
+  --sky:#8CC8FF;
+  --amber:#FFA24C;     /* dữ liệu thô */
+  --sans:"Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --wrap:min(1200px, 100% - 3rem);
+  --r-lg:24px; --r-md:16px; --r-sm:10px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 88px);background:var(--bg)}
+body{background:var(--bg);color:var(--text);font:400 16px/1.65 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
+.wrap{width:var(--wrap);margin-inline:auto}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:1rem;top:1rem;z-index:100;background:var(--text);color:var(--bg);padding:.5rem 1rem;border-radius:8px}
+
+/* ===== Nav ===== */
+.nav{position:fixed;top:calc(env(safe-area-inset-top,0px) + 14px);left:0;right:0;z-index:50;pointer-events:none}
+.nav .bar{pointer-events:auto;width:var(--wrap);margin:auto;display:flex;align-items:center;justify-content:space-between;
+  height:56px;padding:0 .6rem 0 1rem;border:1px solid var(--border);border-radius:14px;
+  background:rgba(8,18,35,.66);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%)}
+.brand{display:flex;align-items:center;gap:.65rem;font-weight:600;font-size:.95rem;letter-spacing:-.01em}
+.brand img{width:30px;height:30px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 1px var(--border-2)}
+.nav ul{display:flex;gap:.25rem;list-style:none}
+.nav ul a{display:block;padding:.45rem .8rem;border-radius:8px;font-size:.88rem;color:var(--muted);transition:color .15s,background .15s}
+.nav ul a:hover{color:var(--text);background:rgba(150,180,225,.07)}
+.nav-r{display:flex;align-items:center;gap:.5rem}
+.lang{height:36px;padding:0 .75rem;border-radius:9px;border:1px solid var(--border);background:transparent;color:var(--muted);font:500 .8rem var(--sans);cursor:pointer}
+.lang:hover{color:var(--text);border-color:var(--border-2)}
+@media (max-width:900px){.nav ul{display:none}}
+
+/* ===== Buttons ===== */
+.btn{display:inline-flex;align-items:center;gap:.55rem;height:46px;padding:0 1.2rem;border-radius:12px;font:500 .93rem var(--sans);
+  border:1px solid var(--border-2);transition:background .15s,border-color .15s,transform .15s}
+.btn svg{width:17px;height:17px}
+.btn-primary{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 8px 24px -10px rgba(61,139,255,.8)}
+.btn-primary:hover{background:#5599FF}
+.btn-ghost:hover{border-color:var(--muted);background:rgba(150,180,225,.05)}
+.btn-sm{height:36px;padding:0 .9rem;font-size:.85rem;border-radius:9px}
+
+/* ===== Hero ===== */
+.hero{position:relative;padding:calc(env(safe-area-inset-top,0px) + 132px) 0 72px;overflow:hidden;
+  background:radial-gradient(900px 520px at 78% 38%, rgba(61,139,255,.13), transparent 70%),
+             radial-gradient(600px 400px at 10% 0%, rgba(140,200,255,.05), transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:2rem;align-items:center}
+.status{display:inline-flex;align-items:center;gap:.6rem;padding:.35rem .85rem .35rem .4rem;border:1px solid var(--border);border-radius:999px;
+  font-size:.83rem;color:var(--muted);background:rgba(12,26,47,.6)}
+.status img{width:24px;height:24px;border-radius:50%;object-fit:cover}
+.status b{color:var(--text);font-weight:500;margin-right:.35rem;padding-right:.6rem;border-right:1px solid var(--border-2)}
+@media (max-width:560px){.status [data-i18n=role]{display:none}.status b{border:0;margin:0;padding:0}}
+.hero h1{margin-top:1.6rem;font-weight:600;font-size:clamp(2.6rem,5.4vw,4.4rem);line-height:1.04;letter-spacing:-.035em}
+.hero h1 span{display:block}
+.hero h1 span:nth-child(2){color:#B9CBE6}
+.hero h1 span:nth-child(3){background:linear-gradient(90deg,var(--sky),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .lead{margin-top:1.4rem;font-size:1.1rem;color:var(--muted);max-width:34rem;font-weight:300}
+.hero .lead strong{color:var(--text);font-weight:500}
+.hero .actions{margin-top:2.1rem;display:flex;gap:.7rem;flex-wrap:wrap}
+.metrics{margin-top:3rem;display:grid;grid-template-columns:repeat(4,auto);justify-content:start;gap:2.6rem;padding-top:1.6rem;border-top:1px solid var(--border)}
+.metrics b{display:block;font-size:1.65rem;font-weight:600;letter-spacing:-.02em;line-height:1.1}
+.metrics span{font-size:.82rem;color:var(--dim)}
+
+.stage{position:relative;height:620px;margin-right:-2rem}
+#scene{position:absolute;inset:0;width:100%;height:100%;cursor:grab;touch-action:pan-y}
+#scene:active{cursor:grabbing}
+.tag3d{position:absolute;left:0;top:0;pointer-events:none;display:flex;align-items:center;gap:.45rem;white-space:nowrap;
+  padding:.28rem .6rem;border-radius:7px;font-size:.74rem;font-weight:500;color:var(--muted);
+  background:rgba(8,18,35,.78);border:1px solid var(--border);backdrop-filter:blur(6px);transition:color .3s,border-color .3s;will-change:transform}
+.tag3d i{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+.tag3d.raw i{background:var(--amber)}
+.tag3d.on{color:var(--text);border-color:rgba(61,139,255,.55)}
+.stage-hint{position:absolute;left:50%;transform:translateX(-50%);bottom:-.4rem;font-size:.78rem;color:var(--dim);display:flex;gap:.4rem;align-items:center}
+.stage-hint svg{width:15px;height:15px}
+
+/* Load sequence (một lần, khi tải trang) */
+.reveal{opacity:0;transform:translateY(14px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+.reveal:nth-child(2){animation-delay:.08s}.reveal:nth-child(3){animation-delay:.16s}
+.reveal:nth-child(4){animation-delay:.24s}.reveal:nth-child(5){animation-delay:.32s}
+.stage.reveal{animation-delay:.2s;animation-duration:1.2s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+@media (max-width:1000px){
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .stage{height:440px;margin:0 -1rem}
+  
+}
+@media (max-width:560px){
+  .metrics{grid-template-columns:repeat(2,auto);gap:1.4rem 2.6rem}
+  .stage{height:380px}
+  .tag3d{font-size:.68rem;padding:.2rem .45rem}
+}
+
+/* ===== Section scaffolding ===== */
+section.sec{padding:112px 0}
+section.alt{background:var(--bg-2);border-block:1px solid var(--border)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2rem;align-items:end;margin-bottom:3.2rem}
+.sec-head h2{font-size:clamp(1.9rem,3.4vw,2.7rem);line-height:1.12;letter-spacing:-.03em;font-weight:600;max-width:17ch}
+.sec-head p{color:var(--muted);max-width:30rem;justify-self:end;font-weight:300;font-size:1.05rem}
+@media (max-width:800px){.sec-head{grid-template-columns:1fr}.sec-head p{justify-self:start}section.sec{padding:84px 0}}
+
+/* ===== About ===== */
+.about{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:4rem;align-items:center}
+.photo{position:relative;border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);aspect-ratio:4/5;max-width:440px}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(5,11,22,.85))}
+.photo figcaption{position:absolute;left:1.2rem;right:1.2rem;bottom:1.1rem;z-index:1;display:flex;justify-content:space-between;align-items:end;gap:1rem}
+.photo figcaption b{display:block;font-weight:600;font-size:1.05rem}
+.photo figcaption span{font-size:.82rem;color:var(--muted)}
+.about h2{font-size:clamp(1.9rem,3.4vw,2.7rem);line-height:1.12;letter-spacing:-.03em;font-weight:600;max-width:18ch}
+.about .txt p{margin-top:1.1rem;color:#B4C2D6;max-width:36rem;font-weight:300;font-size:1.04rem}
+.code{margin-top:2rem;border:1px solid var(--border);border-radius:var(--r-md);background:#071122;overflow:hidden;max-width:36rem}
+.code-top{display:flex;align-items:center;justify-content:space-between;padding:.6rem .9rem;border-bottom:1px solid var(--border);font-size:.78rem;color:var(--dim)}
+.code-top .dots{display:flex;gap:6px}.code-top .dots i{width:10px;height:10px;border-radius:50%;background:#1C2C45}
+.code pre{padding:1rem 1.1rem;font:400 .83rem/1.75 var(--mono);color:#C7D5EA;overflow-x:auto}
+.k{color:#7AA8FF}.t{color:#5EE1C9}.f{color:#FFD58A}.s{color:var(--muted)}
+@media (max-width:900px){.about{grid-template-columns:minmax(0,1fr);gap:2.5rem}.photo{max-width:none;aspect-ratio:1/1}}
+
+/* ===== Capabilities (bento) ===== */
+.bento{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:1rem}
+.cap{position:relative;grid-column:span 6;border:1px solid var(--border);border-radius:var(--r-lg);background:linear-gradient(180deg,#0D1C33,#0A1628);
+  padding:1.75rem;display:flex;flex-direction:column;gap:1.2rem;overflow:hidden;transition:border-color .2s}
+.cap:hover{border-color:var(--border-2)}
+.cap.wide{grid-column:span 7}.cap.narrow{grid-column:span 5}
+.cap h3{font-size:1.25rem;font-weight:600;letter-spacing:-.015em}
+.cap p{color:var(--muted);font-size:.95rem;font-weight:300;max-width:34rem}
+.cap .dia{margin-top:auto;border:1px solid var(--border);border-radius:var(--r-md);background:rgba(5,11,22,.55);padding:1rem}
+.cap .dia svg{width:100%;height:auto}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chips li{list-style:none;font-size:.78rem;color:#A9BAD2;padding:.22rem .6rem;border-radius:7px;background:rgba(150,180,225,.07);border:1px solid var(--border)}
+/* SVG diagram styles */
+.dia .n rect{fill:#0E2140;stroke:rgba(140,200,255,.35);stroke-width:1}
+.dia .n.hi rect{fill:#123366;stroke:var(--blue)}
+.dia .n.raw rect{fill:#2A1B0E;stroke:rgba(255,162,76,.6)}
+.dia text{fill:#C8D6EA;font:500 11px var(--sans);text-anchor:middle;dominant-baseline:middle}
+.dia .e{stroke:rgba(140,200,255,.45);stroke-width:1.2;fill:none}
+.dia .e.dash{stroke-dasharray:3 4}
+.dia .flow{stroke:var(--blue);stroke-width:1.6;fill:none;stroke-dasharray:4 10;animation:dash 1.6s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-28}}
+@media (max-width:900px){.cap,.cap.wide,.cap.narrow{grid-column:1/-1}}
+
+/* ===== Workflow ===== */
+.steps{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;background:var(--surface)}
+.step{padding:1.6rem 1.3rem 1.8rem;border-right:1px solid var(--border);position:relative}
+.step:last-child{border-right:0}
+.step .no{font:500 .78rem var(--mono);color:var(--dim)}
+.step .ic{margin:1.1rem 0 1rem;width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:rgba(61,139,255,.1);color:var(--sky);border:1px solid rgba(61,139,255,.25)}
+.step .ic svg{width:20px;height:20px}
+.step.ai{background:linear-gradient(180deg,rgba(61,139,255,.16),rgba(61,139,255,.03))}
+.step.ai .ic{background:var(--blue);color:#fff;border-color:var(--blue)}
+.step h3{font-size:1rem;font-weight:600}
+.step p{margin-top:.35rem;font-size:.86rem;color:var(--muted);font-weight:300}
+@media (max-width:1000px){.steps{grid-template-columns:repeat(3,1fr)}.step:nth-child(3){border-right:0}.step:nth-child(-n+3){border-bottom:1px solid var(--border)}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}.step{border-right:0;border-bottom:1px solid var(--border)}.step:last-child{border-bottom:0}}
+
+/* ===== Stack ===== */
+.stack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.grp{border:1px solid var(--border);border-radius:var(--r-md);padding:1.4rem;background:var(--surface)}
+.grp h3{font-size:.92rem;font-weight:500;color:var(--muted);display:flex;align-items:center;gap:.55rem}
+.grp h3 svg{width:17px;height:17px;color:var(--sky)}
+.grp ul{margin-top:1rem;list-style:none;display:flex;flex-wrap:wrap;gap:.45rem}
+.grp li{font-size:.9rem;font-weight:500;padding:.38rem .75rem;border-radius:9px;background:rgba(150,180,225,.06);border:1px solid var(--border)}
+@media (max-width:900px){.stack{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.stack{grid-template-columns:1fr}}
+
+/* ===== Principles ===== */
+.prin{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.prin div{padding:1.6rem 1rem;text-align:center;border-right:1px solid var(--border)}
+.prin div:last-child{border-right:0}
+.prin svg{width:26px;height:26px;margin:0 auto .8rem;color:var(--sky)}
+.prin b{font-weight:500;font-size:.9rem}
+@media (max-width:900px){.prin{grid-template-columns:repeat(4,1fr)}.prin div{border-bottom:1px solid var(--border)}}
+@media (max-width:520px){.prin{grid-template-columns:repeat(2,1fr)}}
+
+/* ===== Contact ===== */
+.cta-box{position:relative;border-radius:28px;padding:clamp(2.2rem,5vw,4rem);overflow:hidden;border:1px solid rgba(61,139,255,.35);
+  background:radial-gradient(600px 300px at 85% 0%, rgba(61,139,255,.28), transparent 70%), linear-gradient(180deg,#0E2142,#0A1730)}
+.cta-box h2{font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.1;letter-spacing:-.03em;font-weight:600;max-width:20ch}
+.cta-box p{margin-top:1rem;color:#B4C2D6;max-width:34rem;font-weight:300;font-size:1.05rem}
+.cta-box .actions{margin-top:2rem;display:flex;gap:.7rem;flex-wrap:wrap}
+footer{padding:2.5rem 0 3rem;color:var(--dim);font-size:.85rem}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{animation:none;opacity:1;transform:none}
+  .dia .flow{animation:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Bỏ qua tới nội dung</a>
+
+<header class="nav">
+  <div class="bar">
+    <a class="brand" href="#top"><img src="assets/avatar-sm.jpg" alt="" width="30" height="30">Lưu Văn Đại</a>
+    <ul>
+      <li><a href="#about" data-i18n="n1">Giới thiệu</a></li>
+      <li><a href="#capabilities" data-i18n="n2">Năng lực</a></li>
+      <li><a href="#workflow" data-i18n="n3">Quy trình</a></li>
+      <li><a href="#stack" data-i18n="n4">Công nghệ</a></li>
+    </ul>
+    <div class="nav-r">
+      <button class="lang" id="lang" type="button" aria-label="Đổi ngôn ngữ / Switch language">EN</button>
+      <a class="btn btn-primary btn-sm" href="#contact" data-i18n="n5">Liên hệ</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="status reveal"><img src="assets/avatar-sm.jpg" alt="" width="24" height="24"><span><b>Lưu Văn Đại</b> <span data-i18n="role">AI-Augmented Software Engineer</span></span></div>
+      <h1 class="reveal"><span>Build systems.</span><span>Move data.</span><span>Scale with AI.</span></h1>
+      <p class="lead reveal" data-i18n-html="lead">Software engineer với <strong>hơn 4 năm</strong> xây dựng hệ thống hướng dữ liệu: API cho ứng dụng web, nghiệp vụ ERP, data warehouse và giải pháp ứng dụng AI.</p>
+      <div class="actions reveal">
+        <a class="btn btn-primary" href="#capabilities"><span data-i18n="cta1">Xem năng lực</span></a>
+        <a class="btn btn-ghost" href="https://github.com/luudai92" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+          GitHub
+        </a>
+      </div>
+      <div class="metrics reveal">
+        <div><b>4+</b><span data-i18n="m1">năm kinh nghiệm</span></div>
+        <div><b>6</b><span data-i18n="m2">phân hệ ERP</span></div>
+        <div><b>4</b><span data-i18n="m3">tầng DWH</span></div>
+        <div><b>4</b><span data-i18n="m4">hệ quản trị CSDL</span></div>
+      </div>
+    </div>
+    <div class="stage reveal" id="stage">
+      <canvas id="scene" aria-label="Mô hình 3D luồng dữ liệu qua các tầng data warehouse" role="img"></canvas>
+      <div class="stage-hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16M4 12l3-3M4 12l3 3M20 12l-3-3M20 12l-3 3"/></svg><span data-i18n="hint">Kéo để xoay</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="sec alt" id="about">
+  <div class="wrap about">
+    <figure class="photo">
+      <img src="assets/avatar.jpg" alt="Chân dung Lưu Văn Đại" width="720" height="900" loading="lazy">
+      <figcaption><div><b>Lưu Văn Đại</b><span>Data &amp; System Builder</span></div></figcaption>
+    </figure>
+    <div class="txt">
+      <h2 data-i18n="ab_h">Tôi làm cho dữ liệu chạy đúng chỗ, đúng lúc.</h2>
+      <p data-i18n="ab_1">Phần lớn công việc của tôi nằm phía sau màn hình: thiết kế API, hiện thực nghiệp vụ ERP từ bán hàng đến kế toán, và xây pipeline đưa dữ liệu từ nhiều nguồn vào data warehouse để phục vụ báo cáo.</p>
+      <p data-i18n="ab_2">AI là một phần trong cách tôi làm việc: phân tích yêu cầu, sinh code, hỗ trợ debug, viết tài liệu và tự động hoá luồng dữ liệu lặp lại. Thời gian tiết kiệm được dành cho thiết kế và tối ưu hệ thống.</p>
+      <div class="code" aria-label="Đoạn code C# mẫu">
+        <div class="code-top"><span class="dots"><i></i><i></i><i></i></span><span>DataController.cs</span></div>
+<pre><code><span class="k">public async</span> <span class="t">Task</span>&lt;<span class="t">IActionResult</span>&gt; <span class="f">GetDataAsync</span>(<span class="k">int</span> id)
+{
+    <span class="k">var</span> result = <span class="k">await</span> _service.<span class="f">GetByIdAsync</span>(id);
+    <span class="k">return</span> <span class="f">Ok</span>(result);
+}</code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CAPABILITIES ================= -->
+<section class="sec" id="capabilities">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="cap_h">Bốn mảng tôi làm sâu nhất</h2>
+      <p data-i18n="cap_p">Mỗi mảng đi kèm sơ đồ kiến trúc tôi thường áp dụng trong dự án thực tế.</p>
+    </div>
+    <div class="bento">
+      <!-- DWH -->
+      <article class="cap wide">
+        <h3 data-i18n="c1">Data warehouse và pipeline</h3>
+        <p data-i18n="c1p">ETL/ELT và đồng bộ dữ liệu qua các tầng Staging, Integration, Core, Marts. Xây dựng với SSIS, SSAS, SSRS và Power BI.</p>
+        <div class="dia">
+          <svg viewBox="0 0 560 150" role="img" aria-label="Sơ đồ pipeline data warehouse">
+            <path class="e" d="M88 75H112M196 75H220M304 75H328M412 75H436"/>
+            <path class="flow" d="M88 75H112M196 75H220M304 75H328M412 75H436"/>
+            <g class="n raw"><rect x="8" y="55" width="80" height="40" rx="8"/><text x="48" y="75">Sources</text></g>
+            <g class="n"><rect x="112" y="55" width="84" height="40" rx="8"/><text x="154" y="75">ETL / ELT</text></g>
+            <g class="n hi"><rect x="220" y="10" width="84" height="26" rx="6"/><text x="262" y="23">Staging</text></g>
+            <g class="n hi"><rect x="220" y="42" width="84" height="26" rx="6"/><text x="262" y="55">Integration</text></g>
+            <g class="n hi"><rect x="220" y="74" width="84" height="26" rx="6"/><text x="262" y="87">Core</text></g>
+            <g class="n hi"><rect x="220" y="106" width="84" height="26" rx="6"/><text x="262" y="119">Marts</text></g>
+            <g class="n"><rect x="328" y="55" width="84" height="40" rx="8"/><text x="370" y="75">Analytics</text></g>
+            <g class="n"><rect x="436" y="55" width="116" height="40" rx="8"/><text x="494" y="75">Power BI / SSRS</text></g>
+          </svg>
+        </div>
+      </article>
+      <!-- AI -->
+      <article class="cap narrow">
+        <h3 data-i18n="c2">Phát triển có AI hỗ trợ</h3>
+        <p data-i18n="c2p">AI agent dùng công cụ và bộ nhớ để sinh code, hỗ trợ debug, viết tài liệu và tự động hoá luồng dữ liệu.</p>
+        <div class="dia">
+          <svg viewBox="0 0 380 150" role="img" aria-label="Sơ đồ AI agent workflow">
+            <path class="e" d="M74 45H100M170 45H196M266 45H292"/>
+            <path class="flow" d="M74 45H100M170 45H196M266 45H292"/>
+            <path class="e dash" d="M135 62V100M231 62V100M170 118H196"/>
+            <g class="n"><rect x="4" y="25" width="70" height="40" rx="8"/><text x="39" y="45">Input</text></g>
+            <g class="n hi"><rect x="100" y="25" width="70" height="40" rx="8"/><text x="135" y="45">Agent</text></g>
+            <g class="n"><rect x="196" y="25" width="70" height="40" rx="8"/><text x="231" y="45">Tools</text></g>
+            <g class="n"><rect x="292" y="25" width="80" height="40" rx="8"/><text x="332" y="45">Action</text></g>
+            <g class="n"><rect x="100" y="100" width="70" height="36" rx="8"/><text x="135" y="118">Memory</text></g>
+            <g class="n"><rect x="196" y="100" width="70" height="36" rx="8"/><text x="231" y="118">Learning</text></g>
+          </svg>
+        </div>
+      </article>
+      <!-- API -->
+      <article class="cap narrow">
+        <h3 data-i18n="c3">Ứng dụng web và API</h3>
+        <p data-i18n="c3p">ASP.NET Core Web API theo kiến trúc microservices: API gateway, xác thực, cache và dịch vụ thông báo.</p>
+        <div class="dia">
+          <svg viewBox="0 0 380 170" role="img" aria-label="Sơ đồ kiến trúc microservices">
+            <path class="e" d="M110 24H150M190 42V62M46 62H334M46 62V76M136 62V76M244 62V76M334 62V76M46 110V128H334V110M136 110V128M244 110V128M190 128V138"/>
+            <path class="flow" d="M110 24H150M190 42V62"/>
+            <g class="n"><rect x="40" y="6" width="70" height="36" rx="8"/><text x="75" y="24">Client</text></g>
+            <g class="n hi"><rect x="150" y="6" width="90" height="36" rx="8"/><text x="195" y="24">API Gateway</text></g>
+            <g class="n"><rect x="6" y="76" width="80" height="34" rx="8"/><text x="46" y="93">Auth</text></g>
+            <g class="n"><rect x="96" y="76" width="80" height="34" rx="8"/><text x="136" y="93">User</text></g>
+            <g class="n"><rect x="204" y="76" width="80" height="34" rx="8"/><text x="244" y="93">Data</text></g>
+            <g class="n"><rect x="294" y="76" width="80" height="34" rx="8"/><text x="334" y="93">Notification</text></g>
+            <g class="n"><rect x="140" y="138" width="100" height="28" rx="8"/><text x="190" y="152">Database</text></g>
+          </svg>
+        </div>
+      </article>
+      <!-- ERP -->
+      <article class="cap wide">
+        <h3 data-i18n="c4">Hệ thống ERP</h3>
+        <p data-i18n="c4p">Nghiệp vụ xuyên suốt từ đơn hàng tới sổ sách, kèm báo cáo Crystal Reports, DevExpress và nhập xuất dữ liệu.</p>
+        <div class="dia">
+          <svg viewBox="0 0 560 110" role="img" aria-label="Chuỗi nghiệp vụ ERP">
+            <path class="e" d="M80 55H96M176 55H192M272 55H288M368 55H384M464 55H480"/>
+            <path class="flow" d="M80 55H96M176 55H192M272 55H288M368 55H384M464 55H480"/>
+            <g class="n"><rect x="0" y="33" width="80" height="44" rx="8"/><text x="40" y="55" data-i18n="e1">Bán hàng</text></g>
+            <g class="n"><rect x="96" y="33" width="80" height="44" rx="8"/><text x="136" y="55" data-i18n="e2">Mua hàng</text></g>
+            <g class="n"><rect x="192" y="33" width="80" height="44" rx="8"/><text x="232" y="55" data-i18n="e3">Tồn kho</text></g>
+            <g class="n"><rect x="288" y="33" width="80" height="44" rx="8"/><text x="328" y="55" data-i18n="e4">Điều chuyển</text></g>
+            <g class="n"><rect x="384" y="33" width="80" height="44" rx="8"/><text x="424" y="55" data-i18n="e5">Kế toán</text></g>
+            <g class="n hi"><rect x="480" y="33" width="80" height="44" rx="8"/><text x="520" y="55" data-i18n="e6">Tài chính</text></g>
+          </svg>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORKFLOW ================= -->
+<section class="sec alt" id="workflow">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="wf_h">Quy trình phát triển có AI đi cùng</h2>
+      <p data-i18n="wf_p">AI hỗ trợ ở mọi bước, nhưng quyết định kiến trúc và chất lượng vẫn do con người chịu trách nhiệm.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="no">01</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div><h3 data-i18n="s1">Phân tích</h3><p data-i18n="s1p">Làm rõ nghiệp vụ và nguồn dữ liệu.</p></div>
+      <div class="step"><span class="no">02</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-4h12v4"/></svg></div><h3 data-i18n="s2">Thiết kế</h3><p data-i18n="s2p">Kiến trúc, mô hình dữ liệu, API.</p></div>
+      <div class="step ai"><span class="no">03</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg></div><h3 data-i18n="s3">AI hỗ trợ</h3><p data-i18n="s3p">Copilot, agent, sinh code và tài liệu.</p></div>
+      <div class="step"><span class="no">04</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg></div><h3 data-i18n="s4">Viết code</h3><p data-i18n="s4p">Clean code, LINQ, best practices.</p></div>
+      <div class="step"><span class="no">05</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg></div><h3 data-i18n="s5">Kiểm thử</h3><p data-i18n="s5p">Đối soát dữ liệu, test tự động.</p></div>
+      <div class="step"><span class="no">06</span><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4-6"/></svg></div><h3 data-i18n="s6">Tối ưu</h3><p data-i18n="s6p">Hiệu năng truy vấn và hệ thống.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STACK ================= -->
+<section class="sec" id="stack">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="st_h">Công nghệ dùng hằng ngày</h2>
+      <p data-i18n="st_p">Hệ sinh thái Microsoft là nền tảng chính, kết hợp nhiều hệ quản trị cơ sở dữ liệu và công cụ báo cáo.</p>
+    </div>
+    <div class="stack">
+      <div class="grp"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg><span data-i18n="g1">Ngôn ngữ</span></h3><ul><li>C#</li><li>SQL</li><li>T-SQL</li><li>JavaScript</li><li>Python</li></ul></div>
+      <div class="grp"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg><span>Framework</span></h3><ul><li>.NET 6/7</li><li>ASP.NET Core</li><li>Web API</li><li>EF Core</li><li>LINQ</li></ul></div>
+      <div class="grp"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg><span data-i18n="g3">Cơ sở dữ liệu</span></h3><ul><li>SQL Server</li><li>MySQL</li><li>PostgreSQL</li><li>Oracle</li></ul></div>
+      <div class="grp"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 20h18M6 16V9M11 16V5M16 16v-5M21 16v-8"/></svg><span data-i18n="g4">Data và DWH</span></h3><ul><li>SSIS</li><li>SSAS</li><li>SSRS</li><li>Power BI</li></ul></div>
+      <div class="grp"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9a4.5 4.5 0 0 1-.5 9z"/></svg><span data-i18n="g5">Công cụ và DevOps</span></h3><ul><li>Git</li><li>Docker</li><li>Azure</li><li>CI/CD</li><li>Monitoring</li></ul></div>
+      <div class="grp"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg><span data-i18n="g6">Báo cáo</span></h3><ul><li>Crystal Reports</li><li>DevExpress</li><li>Data Import/Export</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRINCIPLES ================= -->
+<section class="sec alt" id="principles">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-i18n="pr_h">Điều tôi giữ trong mỗi hệ thống</h2>
+      <p data-i18n="pr_p">Chịu được dữ liệu lớn, mở rộng theo chiều ngang khi cần và sẵn sàng lên cloud.</p>
+    </div>
+    <div class="prin">
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m12 3 9 5-9 5-9-5zM3 13l9 5 9-5"/></svg><b>Clean Architecture</b></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 18a8 8 0 1 1 16 0"/><path d="m12 18 4-6"/></svg><b>Performance</b></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 4 6v6c0 4.5 3.4 8 8 9 4.6-1 8-4.5 8-9V6z"/></svg><b>Security</b></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg><b>Reliability</b></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20V14M10 20V9M16 20V5M3 9l6-5 4 3 7-5"/></svg><b>Scalability</b></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg><b>Automation</b></div>
+      <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg><b>Impact</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="sec" id="contact">
+  <div class="wrap">
+    <div class="cta-box">
+      <h2 data-i18n="ct_h">Có bài toán dữ liệu cần giải? Cùng trao đổi.</h2>
+      <p data-i18n="ct_p">Tích hợp hệ thống, data warehouse, báo cáo hay tự động hoá bằng AI, tôi sẵn sàng lắng nghe và cùng tìm hướng đi.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://github.com/luudai92" target="_blank" rel="noopener" data-i18n="ct_b">Liên hệ qua GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> Lưu Văn Đại</span>
+    <span>AI Software Engineer, Data &amp; System Builder</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+/* ============ i18n ============ */
+const EN = {
+  skip:"Skip to content", n1:"About", n2:"Capabilities", n3:"Workflow", n4:"Stack", n5:"Contact",
+  role:"AI-Augmented Software Engineer",
+  lead:"Software engineer with <strong>4+ years</strong> building data-driven systems: APIs for web apps, ERP business flows, data warehouses and AI-powered solutions.",
+  cta1:"View capabilities", m1:"years of experience", m2:"ERP modules", m3:"DWH layers", m4:"database engines", hint:"Drag to rotate",
+  ab_h:"I make data land in the right place, at the right time.",
+  ab_1:"Most of my work happens behind the screen: designing APIs, implementing ERP flows from sales to accounting, and building pipelines that move data from many sources into a warehouse for reporting.",
+  ab_2:"AI is part of how I work: analysing requirements, generating code, debugging, writing docs and automating repetitive data flows. The time saved goes into design and system optimisation.",
+  cap_h:"Four areas I go deepest in", cap_p:"Each comes with the architecture I typically apply in real projects.",
+  c1:"Data warehouse and pipelines", c1p:"ETL/ELT and data sync through Staging, Integration, Core and Marts layers. Built with SSIS, SSAS, SSRS and Power BI.",
+  c2:"AI-assisted development", c2p:"AI agents with tools and memory for code generation, debugging help, documentation and data workflow automation.",
+  c3:"Web applications and APIs", c3p:"ASP.NET Core Web API in a microservices architecture: API gateway, authentication, caching and notifications.",
+  c4:"ERP systems", c4p:"End-to-end business flows from orders to the ledger, with Crystal Reports, DevExpress reporting and data import/export.",
+  e1:"Sales", e2:"Purchase", e3:"Inventory", e4:"Transfer", e5:"Accounting", e6:"Financial",
+  wf_h:"A development workflow with AI alongside", wf_p:"AI supports every step, while architecture and quality decisions stay with people.",
+  s1:"Analysis", s1p:"Clarify the business and data sources.", s2:"Design", s2p:"Architecture, data models, APIs.",
+  s3:"AI assist", s3p:"Copilot, agents, code and docs generation.", s4:"Coding", s4p:"Clean code, LINQ, best practices.",
+  s5:"Testing", s5p:"Data reconciliation, automated tests.", s6:"Optimization", s6p:"Query and system performance.",
+  st_h:"Tools I use every day", st_p:"The Microsoft ecosystem is my main platform, alongside several database engines and reporting tools.",
+  g1:"Languages", g3:"Databases", g4:"Data and DWH", g5:"Tools and DevOps", g6:"Reporting",
+  pr_h:"What I keep in every system", pr_p:"Handles high data volume, scales horizontally when needed and is ready for the cloud.",
+  ct_h:"Have a data problem to solve? Let's talk.", ct_p:"System integration, data warehousing, reporting or AI automation, I'm happy to listen and find a way forward together.",
+  ct_b:"Contact me on GitHub"
+};
+const VI = {};
+document.querySelectorAll("[data-i18n]").forEach(el => VI[el.dataset.i18n] = el.textContent);
+document.querySelectorAll("[data-i18n-html]").forEach(el => VI[el.dataset.i18nHtml] = el.innerHTML);
+const TAGS = { vi:["Nguồn dữ liệu","Staging","Integration","Core","Marts","Analytics"], en:["Data sources","Staging","Integration","Core","Marts","Analytics"] };
+let lang = "vi";
+try { lang = localStorage.getItem("lang") || (navigator.language.toLowerCase().startsWith("vi") ? "vi" : "en"); } catch(e) {}
+function applyLang(l){
+  lang = l; const d = l === "en" ? EN : VI;
+  document.documentElement.lang = l;
+  document.querySelectorAll("[data-i18n]").forEach(el => { const v = d[el.dataset.i18n]; if (v) el.textContent = v; });
+  document.querySelectorAll("[data-i18n-html]").forEach(el => { const v = d[el.dataset.i18nHtml]; if (v) el.innerHTML = v; });
+  document.getElementById("lang").textContent = l === "en" ? "VI" : "EN";
+  document.querySelectorAll(".tag3d span").forEach((el,i) => el.textContent = TAGS[l][i]);
+  try { localStorage.setItem("lang", l); } catch(e) {}
+}
+document.getElementById("lang").addEventListener("click", () => applyLang(lang === "en" ? "vi" : "en"));
+document.getElementById("yr").textContent = new Date().getFullYear();
+applyLang(lang);
+
+/* ============ 3D: data warehouse ============ */
+(() => {
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const stage = document.getElementById("stage"), canvas = document.getElementById("scene");
+  if (!window.THREE) { canvas.remove(); return; }
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true }); } catch(e) { canvas.remove(); return; }
+  renderer.setPixelRatio(Math.min(2, devicePixelRatio));
+  renderer.outputEncoding = THREE.sRGBEncoding;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(32, 1, .1, 100);
+  camera.position.set(0, 3.2, 15.5); camera.lookAt(0, -.15, 0);
+  const root = new THREE.Group(); scene.add(root);
+
+  scene.add(new THREE.AmbientLight(0x8fb4ff, .55));
+  const key = new THREE.DirectionalLight(0xffffff, .9); key.position.set(4, 8, 6); scene.add(key);
+  const core = new THREE.PointLight(0x3d8bff, 2.2, 9); core.position.set(0, 0, 0); scene.add(core);
+
+  const BLUE = new THREE.Color(0x3d8bff), SKY = new THREE.Color(0x8cc8ff), AMBER = new THREE.Color(0xffa24c);
+  const LY = [-1.65, -.55, .55, 1.65], R = 1.75, TH = .16;
+
+  // Tầng: tấm kính dày + viền sáng
+  const layerParts = [];
+  LY.forEach(y => {
+    const slab = new THREE.Mesh(new THREE.CylinderGeometry(R, R, TH, 96),
+      new THREE.MeshPhysicalMaterial({ color:0x0f2a52, metalness:.2, roughness:.25, clearcoat:1, clearcoatRoughness:.2,
+        transparent:true, opacity:.62, emissive:0x0a2a66, emissiveIntensity:.35 }));
+    slab.position.y = y; root.add(slab);
+    const mk = (r, yy, op) => {
+      const pts = []; for (let i=0;i<=160;i++){ const a=i/160*Math.PI*2; pts.push(new THREE.Vector3(Math.cos(a)*r, yy, Math.sin(a)*r)); }
+      const m = new THREE.LineBasicMaterial({ color:0x8cc8ff, transparent:true, opacity:op });
+      root.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), m)); return m;
+    };
+    const top = mk(R, y + TH/2, .9); mk(R, y - TH/2, .25); mk(R*.62, y + TH/2 + .001, .18);
+    // vạch lưới trên mặt tầng
+    const g = []; for (let i=0;i<12;i++){ const a=i/12*Math.PI*2; g.push(new THREE.Vector3(Math.cos(a)*R*.62, y+TH/2+.002, Math.sin(a)*R*.62), new THREE.Vector3(Math.cos(a)*R*.98, y+TH/2+.002, Math.sin(a)*R*.98)); }
+    root.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(g), new THREE.LineBasicMaterial({ color:0x8cc8ff, transparent:true, opacity:.1 })));
+    layerParts.push({ slab:slab.material, top });
+  });
+  // Lõi trung tâm phát sáng
+  const coreMesh = new THREE.Mesh(new THREE.CylinderGeometry(.035, .035, 3.4, 16), new THREE.MeshBasicMaterial({ color:0x8cc8ff, transparent:true, opacity:.45 }));
+  root.add(coreMesh);
+  const glowTex = (() => { const c = document.createElement("canvas"); c.width = c.height = 128; const x = c.getContext("2d");
+    const g = x.createRadialGradient(64,64,0,64,64,64); g.addColorStop(0,"rgba(255,255,255,1)"); g.addColorStop(.25,"rgba(255,255,255,.45)"); g.addColorStop(1,"rgba(255,255,255,0)");
+    x.fillStyle = g; x.fillRect(0,0,128,128); return new THREE.CanvasTexture(c); })();
+  const halo = new THREE.Sprite(new THREE.SpriteMaterial({ map:glowTex, color:0x3d8bff, transparent:true, opacity:.55, depthWrite:false, blending:THREE.AdditiveBlending }));
+  halo.scale.set(7, 7, 1); root.add(halo);
+
+  // Nguồn dữ liệu: khối bo tròn màu hổ phách
+  const NS = 6, SR = 3.5, SY = -2.55, srcMeshes = [];
+  for (let i=0;i<NS;i++){
+    const a = i/NS*Math.PI*2 + .3;
+    const m = new THREE.Mesh(new THREE.BoxGeometry(.34,.34,.34),
+      new THREE.MeshStandardMaterial({ color:0xc8651c, emissive:0x8a3a08, emissiveIntensity:.5, roughness:.35, metalness:.3 }));
+    m.position.set(Math.cos(a)*SR, SY, Math.sin(a)*SR); root.add(m); srcMeshes.push(m);
+    const e = new THREE.LineSegments(new THREE.EdgesGeometry(new THREE.BoxGeometry(.42,.42,.42)), new THREE.LineBasicMaterial({ color:0xffc285, transparent:true, opacity:.5 }));
+    m.add(e);
+  }
+  // Đĩa nền
+  const base = new THREE.Mesh(new THREE.RingGeometry(SR-.02, SR+.02, 160), new THREE.MeshBasicMaterial({ color:0x8cc8ff, transparent:true, opacity:.18, side:THREE.DoubleSide }));
+  base.rotation.x = -Math.PI/2; base.position.y = SY - .2; root.add(base);
+  // Vòng Analytics
+  const an = new THREE.Mesh(new THREE.TorusGeometry(2.5, .012, 8, 200), new THREE.MeshBasicMaterial({ color:0x8cc8ff, transparent:true, opacity:.55 }));
+  an.rotation.x = Math.PI/2; an.position.y = 2.75; root.add(an);
+
+  // Đường dẫn dữ liệu cố định (curve), hạt chạy trên curve
+  const curves = [];
+  for (let i=0;i<NS;i++){
+    const a = i/NS*Math.PI*2 + .3, pts = [];
+    pts.push(new THREE.Vector3(Math.cos(a)*SR, SY, Math.sin(a)*SR));
+    pts.push(new THREE.Vector3(Math.cos(a+.3)*2.2, -2.15, Math.sin(a+.3)*2.2));
+    for (let k=0;k<=8;k++){ const y = -1.65 + k*(3.3/8), aa = a + .6 + k*.42, r = 1.15 - Math.sin(k/8*Math.PI)*.35; pts.push(new THREE.Vector3(Math.cos(aa)*r, y, Math.sin(aa)*r)); }
+    pts.push(new THREE.Vector3(Math.cos(a+4.4)*2.0, 2.35, Math.sin(a+4.4)*2.0));
+    pts.push(new THREE.Vector3(Math.cos(a+4.8)*2.5, 2.75, Math.sin(a+4.8)*2.5));
+    const c = new THREE.CatmullRomCurve3(pts, false, "centripetal"); curves.push(c);
+    const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints(c.getPoints(220)), new THREE.LineBasicMaterial({ color:0x5f9dff, transparent:true, opacity:.16 }));
+    root.add(line);
+  }
+  const SAMPLES = 400, table = curves.map(c => c.getSpacedPoints(SAMPLES));
+  const N = innerWidth < 700 ? 180 : 300;
+  const pos = new Float32Array(N*3), col = new Float32Array(N*3), P = [];
+  for (let i=0;i<N;i++) P.push({ c:i % NS, t:Math.random(), v:.07 + Math.random()*.05 });
+  const pg = new THREE.BufferGeometry();
+  pg.setAttribute("position", new THREE.BufferAttribute(pos,3)); pg.setAttribute("color", new THREE.BufferAttribute(col,3));
+  root.add(new THREE.Points(pg, new THREE.PointsMaterial({ size:.17, map:glowTex, vertexColors:true, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending })));
+  const tmp = new THREE.Color();
+  function place(p, i){
+    const arr = table[p.c], f = p.t * SAMPLES, j = Math.floor(f), pt = arr[j], nx = arr[Math.min(SAMPLES, j+1)], k = f - j;
+    pos[i*3] = pt.x + (nx.x-pt.x)*k; pos[i*3+1] = pt.y + (nx.y-pt.y)*k; pos[i*3+2] = pt.z + (nx.z-pt.z)*k;
+    const mix = Math.min(1, Math.max(0, (p.t - .12) / .18));
+    tmp.copy(AMBER).lerp(SKY, mix);
+    const fade = p.t > .93 ? (1 - p.t)/.07 : p.t < .03 ? p.t/.03 : 1;
+    col[i*3] = tmp.r*fade; col[i*3+1] = tmp.g*fade; col[i*3+2] = tmp.b*fade;
+  }
+  P.forEach(place);
+
+  // Nhãn: neo cố định theo màn hình (không xoay theo khối)
+  const anchors = [new THREE.Vector3(SR*.98, SY, 0), ...LY.map(y => new THREE.Vector3(R + .05, y, 0)), new THREE.Vector3(2.5, 2.75, 0)];
+  const tags = anchors.map((_, i) => {
+    const d = document.createElement("div"); d.className = "tag3d" + (i === 0 ? " raw" : "");
+    d.innerHTML = "<i></i><span></span>"; d.querySelector("span").textContent = TAGS[lang][i];
+    d.setAttribute("aria-hidden", "true"); stage.appendChild(d); return d;
+  });
+
+  // Tương tác
+  let drag = false, lx = 0, vel = 0, rot = .5, mx = 0, my = 0, tx = 0, ty = 0;
+  canvas.addEventListener("pointerdown", e => { drag = true; lx = e.clientX; canvas.setPointerCapture(e.pointerId); });
+  const stop = () => drag = false;
+  canvas.addEventListener("pointerup", stop); canvas.addEventListener("pointercancel", stop);
+  canvas.addEventListener("pointermove", e => { if (drag){ vel = (e.clientX - lx) * .006; rot += vel; lx = e.clientX; } });
+  addEventListener("pointermove", e => { mx = e.clientX/innerWidth - .5; my = e.clientY/innerHeight - .5; }, { passive:true });
+
+  let W = 0, H = 0;
+  function resize(){
+    W = stage.clientWidth; H = stage.clientHeight;
+    renderer.setSize(W, H, false); camera.aspect = W/H;
+    camera.fov = W < 520 ? 30 : 32; camera.updateProjectionMatrix();
+    root.position.x = W > 700 ? -.35 : 0;
+  }
+  new ResizeObserver(resize).observe(stage); resize();
+
+  let visible = true;
+  new IntersectionObserver(([e]) => visible = e.isIntersecting).observe(stage);
+
+  const v = new THREE.Vector3(), clock = new THREE.Clock();
+  function frame(){
+    const dt = Math.min(clock.getDelta(), .05), t = clock.elapsedTime;
+    if (!drag){ vel *= .93; rot += vel + (reduced ? 0 : dt*.1); }
+    tx += (my*.18 - tx)*.05; ty += (mx*.3 - ty)*.05;
+    root.rotation.set(tx, rot + ty, 0, "YXZ");
+    if (!reduced){
+      for (let i=0;i<N;i++){ const p = P[i]; p.t += p.v*dt; if (p.t >= 1) p.t -= 1; place(p, i); }
+      pg.attributes.position.needsUpdate = pg.attributes.color.needsUpdate = true;
+    }
+    const hot = Math.floor(t*.55) % 6;   // 0: nguồn, 1..4: tầng, 5: analytics
+    layerParts.forEach((m, i) => {
+      const on = hot === i+1;
+      m.slab.emissiveIntensity += ((on ? 1.1 : .35) - m.slab.emissiveIntensity)*.07;
+      m.top.opacity += ((on ? 1 : .55) - m.top.opacity)*.07;
+    });
+    halo.material.opacity = .45 + Math.sin(t*1.4)*.08;
+    core.intensity = 2 + Math.sin(t*1.4)*.4;
+    srcMeshes.forEach((m, i) => { m.rotation.y += dt*.5; m.position.y = SY + Math.sin(t*1.3 + i)*.05; });
+
+    renderer.render(scene, camera);
+
+    // nhãn: đặt ở mép phải của từng tầng, chỉ nghiêng theo trục X
+    anchors.forEach((a, i) => {
+      v.copy(a).applyAxisAngle(new THREE.Vector3(1,0,0), tx).add(root.position).project(camera);
+      const x = (v.x+1)/2*W + 14, y = (1-v.y)/2*H - 12;
+      tags[i].style.transform = `translate(${Math.min(x, W - tags[i].offsetWidth - 4)}px, ${y}px)`;
+      tags[i].classList.toggle("on", hot === i);
+    });
+  }
+  function loop(){ if (visible) frame(); requestAnimationFrame(loop); }
+  loop();
+})();
+</script>
+</body>
+</html>
